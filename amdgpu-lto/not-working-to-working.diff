@@ -1,0 +1,582 @@
+@@ -6365119,259 +6365119,425 @@
+ 	55                   	push   %rbp
+ 	41 57                	push   %r15
+ 	41 56                	push   %r14
++	41 55                	push   %r13
+ 	41 54                	push   %r12
+ 	53                   	push   %rbx
+-	48 83 ec 30          	sub    $0x30,%rsp
++	48 81 ec f8 00 00 00 	sub    $0xf8,%rsp
+ 	48 8b 5f 10          	mov    0x10(%rdi),%rbx
+-	48 8b 3d b9 e7 8e 01 	mov    0x18ee7b9(%rip),%rdi        # ffffffff8399e870 <kmalloc_caches+0x20>
++	48 8b 3d b4 e7 8e 01 	mov    0x18ee7b4(%rip),%rdi        # ffffffff8399e870 <kmalloc_caches+0x20>
+ 	ba 10 00 00 00       	mov    $0x10,%edx
+ 	be c0 0c 00 00       	mov    $0xcc0,%esi
+-	e8 da 4f 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
++	e8 d5 4f 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
+ 	48 85 c0             	test   %rax,%rax
+-	0f 84 6b 01 00 00    	je     ffffffff820b023a <dm_sw_init+0x19a>
+-	48 c7 00 e0 f7 78 83 	movq   $0xffffffff8378f7e0,(%rax)
++	0f 84 6b 01 00 00    	je     ffffffff820b023f <dm_sw_init+0x19f>
++	4c 8d a3 98 75 04 00 	lea    0x47598(%rbx),%r12
++	48 c7 00 e0 f5 78 83 	movq   $0xffffffff8378f5e0,(%rax)
+ 	48 89 58 08          	mov    %rbx,0x8(%rax)
+ 	48 89 83 f8 59 04 00 	mov    %rax,0x459f8(%rbx)
+-	48 8d 83 98 75 04 00 	lea    0x47598(%rbx),%rax
+-	48 89 83 98 75 04 00 	mov    %rax,0x47598(%rbx)
+-	48 89 83 a0 75 04 00 	mov    %rax,0x475a0(%rbx)
+ 	b8 00 ff ff ff       	mov    $0xffffff00,%eax
++	4c 89 a3 98 75 04 00 	mov    %r12,0x47598(%rbx)
++	4c 89 a3 a0 75 04 00 	mov    %r12,0x475a0(%rbx)
+ 	23 83 a8 af 05 00    	and    0x5afa8(%rbx),%eax
+ 	3d ff 04 01 03       	cmp    $0x30104ff,%eax
+-	7f 37                	jg     ffffffff820b013f <dm_sw_init+0x9f>
++	7f 37                	jg     ffffffff820b0144 <dm_sw_init+0xa4>
+ 	3d ff 02 00 03       	cmp    $0x30002ff,%eax
+-	7f 62                	jg     ffffffff820b0171 <dm_sw_init+0xd1>
++	7f 62                	jg     ffffffff820b0176 <dm_sw_init+0xd6>
+ 	3d ff 00 00 03       	cmp    $0x30000ff,%eax
+-	0f 8f 9c 00 00 00    	jg     ffffffff820b01b6 <dm_sw_init+0x116>
++	0f 8f 9c 00 00 00    	jg     ffffffff820b01bb <dm_sw_init+0x11b>
+ 	bd 02 00 00 00       	mov    $0x2,%ebp
+ 	3d 00 00 01 02       	cmp    $0x2010000,%eax
+-	0f 84 5c 01 00 00    	je     ffffffff820b0286 <dm_sw_init+0x1e6>
++	0f 84 5c 01 00 00    	je     ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d 00 00 00 03       	cmp    $0x3000000,%eax
+-	0f 85 f0 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 95 03 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 03 00 00 00       	mov    $0x3,%ebp
+-	e9 47 01 00 00       	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	e9 47 01 00 00       	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d ff ff 04 03       	cmp    $0x304ffff,%eax
+-	7f 4d                	jg     ffffffff820b0193 <dm_sw_init+0xf3>
++	7f 4d                	jg     ffffffff820b0198 <dm_sw_init+0xf8>
+ 	3d ff ff 01 03       	cmp    $0x301ffff,%eax
+-	0f 8f 85 00 00 00    	jg     ffffffff820b01d6 <dm_sw_init+0x136>
++	0f 8f 85 00 00 00    	jg     ffffffff820b01db <dm_sw_init+0x13b>
+ 	3d 00 05 01 03       	cmp    $0x3010500,%eax
+-	0f 84 09 01 00 00    	je     ffffffff820b0265 <dm_sw_init+0x1c5>
++	0f 84 09 01 00 00    	je     ffffffff820b026a <dm_sw_init+0x1ca>
+ 	3d 00 06 01 03       	cmp    $0x3010600,%eax
+-	0f 85 be 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 63 03 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 0b 00 00 00       	mov    $0xb,%ebp
+-	e9 15 01 00 00       	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	e9 15 01 00 00       	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d ff 02 01 03       	cmp    $0x30102ff,%eax
+-	7f 7e                	jg     ffffffff820b01f6 <dm_sw_init+0x156>
++	7f 7e                	jg     ffffffff820b01fb <dm_sw_init+0x15b>
+ 	3d 00 03 00 03       	cmp    $0x3000300,%eax
+-	0f 84 e9 00 00 00    	je     ffffffff820b026c <dm_sw_init+0x1cc>
++	0f 84 e9 00 00 00    	je     ffffffff820b0271 <dm_sw_init+0x1d1>
+ 	3d 00 02 01 03       	cmp    $0x3010200,%eax
+-	0f 84 9a 00 00 00    	je     ffffffff820b0228 <dm_sw_init+0x188>
+-	e9 92 01 00 00       	jmp    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 84 9a 00 00 00    	je     ffffffff820b022d <dm_sw_init+0x18d>
++	e9 37 03 00 00       	jmp    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	3d ff ff 05 03       	cmp    $0x305ffff,%eax
+-	7f 75                	jg     ffffffff820b020f <dm_sw_init+0x16f>
++	7f 75                	jg     ffffffff820b0214 <dm_sw_init+0x174>
+ 	3d 00 00 05 03       	cmp    $0x3050000,%eax
+-	74 0b                	je     ffffffff820b01ac <dm_sw_init+0x10c>
++	74 0b                	je     ffffffff820b01b1 <dm_sw_init+0x111>
+ 	3d 00 01 05 03       	cmp    $0x3050100,%eax
+-	0f 85 79 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 1e 03 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 0e 00 00 00       	mov    $0xe,%ebp
+-	e9 d0 00 00 00       	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	e9 d0 00 00 00       	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d 00 01 00 03       	cmp    $0x3000100,%eax
+-	0f 84 b2 00 00 00    	je     ffffffff820b0273 <dm_sw_init+0x1d3>
++	0f 84 b2 00 00 00    	je     ffffffff820b0278 <dm_sw_init+0x1d8>
+ 	3d 00 02 00 03       	cmp    $0x3000200,%eax
+-	0f 85 59 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 fe 02 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 05 00 00 00       	mov    $0x5,%ebp
+-	e9 b0 00 00 00       	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	e9 b0 00 00 00       	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d 00 00 02 03       	cmp    $0x3020000,%eax
+-	0f 84 99 00 00 00    	je     ffffffff820b027a <dm_sw_init+0x1da>
++	0f 84 99 00 00 00    	je     ffffffff820b027f <dm_sw_init+0x1df>
+ 	3d 00 01 02 03       	cmp    $0x3020100,%eax
+-	0f 85 39 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 de 02 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 0d 00 00 00       	mov    $0xd,%ebp
+-	e9 90 00 00 00       	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	e9 90 00 00 00       	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d 00 03 01 03       	cmp    $0x3010300,%eax
+-	74 2b                	je     ffffffff820b0228 <dm_sw_init+0x188>
++	74 2b                	je     ffffffff820b022d <dm_sw_init+0x18d>
+ 	3d 00 04 01 03       	cmp    $0x3010400,%eax
+-	0f 85 1d 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 c2 02 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 09 00 00 00       	mov    $0x9,%ebp
+-	eb 77                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 77                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	3d 00 00 06 03       	cmp    $0x3060000,%eax
+-	74 6b                	je     ffffffff820b0281 <dm_sw_init+0x1e1>
++	74 6b                	je     ffffffff820b0286 <dm_sw_init+0x1e6>
+ 	3d 00 01 00 04       	cmp    $0x4000100,%eax
+-	0f 85 04 01 00 00    	jne    ffffffff820b0325 <dm_sw_init+0x285>
++	0f 85 a9 02 00 00    	jne    ffffffff820b04cf <dm_sw_init+0x42f>
+ 	bd 11 00 00 00       	mov    $0x11,%ebp
+-	eb 5e                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 5e                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	31 ed                	xor    %ebp,%ebp
+ 	83 bb 94 06 00 00 20 	cmpl   $0x20,0x694(%rbx)
+ 	40 0f 94 c5          	sete   %bpl
+ 	83 c5 07             	add    $0x7,%ebp
+-	eb 4c                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 4c                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	0f 85 90 01 00 00    	jne    ffffffff820b03d4 <dm_sw_init+0x334>
+-	48 c7 c6 11 76 5e 83 	mov    $0xffffffff835e7611,%rsi
++	0f 85 82 03 00 00    	jne    ffffffff820b05cb <dm_sw_init+0x52b>
++	48 c7 c6 6f 74 5e 83 	mov    $0xffffffff835e746f,%rsi
+ 	31 ff                	xor    %edi,%edi
+ 	45 31 f6             	xor    %r14d,%r14d
+-	e8 bb fb 16 ff       	call   ffffffff8121fe10 <_dev_err>
++	e8 b6 fb 16 ff       	call   ffffffff8121fe10 <_dev_err>
+ 	48 c7 83 f8 59 04 00 	movq   $0x0,0x459f8(%rbx)
+ 	00 00 00 00 
+-	e9 8e 01 00 00       	jmp    ffffffff820b03f3 <dm_sw_init+0x353>
++	e9 80 03 00 00       	jmp    ffffffff820b05ea <dm_sw_init+0x54a>
+ 	bd 0a 00 00 00       	mov    $0xa,%ebp
+-	eb 1a                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 1a                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	bd 06 00 00 00       	mov    $0x6,%ebp
+-	eb 13                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 13                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	bd 04 00 00 00       	mov    $0x4,%ebp
+-	eb 0c                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 0c                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	bd 0c 00 00 00       	mov    $0xc,%ebp
+-	eb 05                	jmp    ffffffff820b0286 <dm_sw_init+0x1e6>
++	eb 05                	jmp    ffffffff820b028b <dm_sw_init+0x1eb>
+ 	bd 10 00 00 00       	mov    $0x10,%ebp
+-	48 8b 8b d0 59 04 00 	mov    0x459d0(%rbx),%rcx
+-	48 8b 41 08          	mov    0x8(%rcx),%rax
+-	8b 50 10             	mov    0x10(%rax),%edx
++	48 8b 83 d0 59 04 00 	mov    0x459d0(%rbx),%rax
++	4c 8b 78 08          	mov    0x8(%rax),%r15
++	41 8b 57 10          	mov    0x10(%r15),%edx
+ 	89 93 f0 59 04 00    	mov    %edx,0x459f0(%rbx)
+ 	83 bb 08 c9 03 00 01 	cmpl   $0x1,0x3c908(%rbx)
+-	0f 84 ea 00 00 00    	je     ffffffff820b0391 <dm_sw_init+0x2f1>
+-	48 8b 3d fa e5 8e 01 	mov    0x18ee5fa(%rip),%rdi        # ffffffff8399e8a8 <kmalloc_caches+0x58>
++	0f 84 ae 02 00 00    	je     ffffffff820b055b <dm_sw_init+0x4bb>
++	48 8b 3d f4 e5 8e 01 	mov    0x18ee5f4(%rip),%rdi        # ffffffff8399e8a8 <kmalloc_caches+0x58>
+ 	ba c0 04 00 00       	mov    $0x4c0,%edx
+ 	be c0 0d 00 00       	mov    $0xdc0,%esi
+-	e8 e3 4d 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
++	e8 dd 4d 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
+ 	48 89 83 70 59 04 00 	mov    %rax,0x45970(%rbx)
+ 	48 85 c0             	test   %rax,%rax
+-	0f 84 f3 00 00 00    	je     ffffffff820b03c0 <dm_sw_init+0x320>
+-	48 c7 44 24 20 00 00 	movq   $0x0,0x20(%rsp)
+-	00 00 
+-	48 c7 44 24 28 00 00 	movq   $0x0,0x28(%rsp)
++	0f 84 be 02 00 00    	je     ffffffff820b0591 <dm_sw_init+0x4f1>
++	48 8d 74 24 58       	lea    0x58(%rsp),%rsi
++	48 89 c7             	mov    %rax,%rdi
++	49 89 c6             	mov    %rax,%r14
++	48 c7 44 24 78 00 00 	movq   $0x0,0x78(%rsp)
+ 	00 00 
+-	48 c7 44 24 10 00 00 	movq   $0x0,0x10(%rsp)
++	48 c7 84 24 80 00 00 	movq   $0x0,0x80(%rsp)
++	00 00 00 00 00 
++	48 c7 44 24 68 00 00 	movq   $0x0,0x68(%rsp)
+ 	00 00 
+-	48 89 5c 24 18       	mov    %rbx,0x18(%rsp)
+-	48 c7 04 24 d0 46 0c 	movq   $0xffffffff820c46d0,(%rsp)
+-	82 
+-	48 c7 44 24 08 50 47 	movq   $0xffffffff820c4750,0x8(%rsp)
++	48 89 5c 24 70       	mov    %rbx,0x70(%rsp)
++	48 c7 44 24 58 50 4b 	movq   $0xffffffff820c4b50,0x58(%rsp)
+ 	0c 82 
+-	89 6c 24 20          	mov    %ebp,0x20(%rsp)
++	48 c7 44 24 60 d0 4b 	movq   $0xffffffff820c4bd0,0x60(%rsp)
++	0c 82 
++	89 6c 24 78          	mov    %ebp,0x78(%rsp)
++	e8 94 5c 42 00       	call   ffffffff824d5fb0 <dmub_srv_create>
++	85 c0                	test   %eax,%eax
++	0f 85 7e 02 00 00    	jne    ffffffff820b05a2 <dm_sw_init+0x502>
++	48 c7 44 24 08 00 00 	movq   $0x0,0x8(%rsp)
++	00 00 
++	41 8b 47 20          	mov    0x20(%r15),%eax
++	8d 88 00 fe ff ff    	lea    -0x200(%rax),%ecx
++	89 0c 24             	mov    %ecx,(%rsp)
++	41 8b 4f 24          	mov    0x24(%r15),%ecx
++	89 4c 24 04          	mov    %ecx,0x4(%rsp)
++	8b 93 b8 08 00 00    	mov    0x8b8(%rbx),%edx
++	89 54 24 08          	mov    %edx,0x8(%rsp)
++	48 8b 93 d0 59 04 00 	mov    0x459d0(%rbx),%rdx
++	41 8b 77 18          	mov    0x18(%r15),%esi
++	4c 8d bc 24 8c 00 00 	lea    0x8c(%rsp),%r15
++	00 
++	48 8b 52 08          	mov    0x8(%rdx),%rdx
++	48 8d 3c 32          	lea    (%rdx,%rsi,1),%rdi
++	48 01 c7             	add    %rax,%rdi
++	31 c0                	xor    %eax,%eax
++	85 c9                	test   %ecx,%ecx
++	48 0f 45 c7          	cmovne %rdi,%rax
++	4c 89 f7             	mov    %r14,%rdi
++	48 89 44 24 18       	mov    %rax,0x18(%rsp)
++	48 8d 84 32 00 01 00 	lea    0x100(%rdx,%rsi,1),%rax
++	00 
+ 	48 89 e6             	mov    %rsp,%rsi
+-	48 89 c7             	mov    %rax,%rdi
+-	e8 93 5f 42 00       	call   ffffffff824d62a0 <dmub_srv_create>
++	4c 89 fa             	mov    %r15,%rdx
++	48 89 44 24 10       	mov    %rax,0x10(%rsp)
++	48 c7 44 24 20 70 47 	movq   $0xffffffff85124770,0x20(%rsp)
++	12 85 
++	e8 15 65 42 00       	call   ffffffff824d68b0 <dmub_srv_calc_region_info>
+ 	85 c0                	test   %eax,%eax
+-	0f 85 b5 00 00 00    	jne    ffffffff820b03ca <dm_sw_init+0x32a>
+-	44 89 f0             	mov    %r14d,%eax
+-	48 83 c4 30          	add    $0x30,%rsp
+-	5b                   	pop    %rbx
+-	41 5c                	pop    %r12
+-	41 5e                	pop    %r14
+-	41 5f                	pop    %r15
+-	5d                   	pop    %rbp
+-	c3                   	ret
++	0f 85 10 02 00 00    	jne    ffffffff820b05b3 <dm_sw_init+0x513>
++	8b b4 24 8c 00 00 00 	mov    0x8c(%rsp),%esi
++	48 8d 83 e8 59 04 00 	lea    0x459e8(%rbx),%rax
++	4c 8d 83 d8 59 04 00 	lea    0x459d8(%rbx),%r8
++	4c 8d 8b e0 59 04 00 	lea    0x459e0(%rbx),%r9
++	48 89 df             	mov    %rbx,%rdi
++	ba 00 10 00 00       	mov    $0x1000,%edx
++	b9 06 00 00 00       	mov    $0x6,%ecx
++	50                   	push   %rax
++	e8 6e fc c5 ff       	call   ffffffff81d10040 <amdgpu_bo_create_kernel>
++	48 83 c4 08          	add    $0x8,%rsp
++	85 c0                	test   %eax,%eax
++	0f 85 05 04 00 00    	jne    ffffffff820b07e3 <dm_sw_init+0x743>
++	48 c7 44 24 48 00 00 	movq   $0x0,0x48(%rsp)
++	00 00 
++	48 c7 44 24 40 00 00 	movq   $0x0,0x40(%rsp)
++	00 00 
++	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
++	00 00 
++	48 8b 3d 98 e4 8e 01 	mov    0x18ee498(%rip),%rdi        # ffffffff8399e898 <kmalloc_caches+0x48>
++	ba 28 01 00 00       	mov    $0x128,%edx
++	be c0 0d 00 00       	mov    $0xdc0,%esi
++	48 8b 83 e8 59 04 00 	mov    0x459e8(%rbx),%rax
++	48 89 44 24 30       	mov    %rax,0x30(%rsp)
++	48 8b 83 e0 59 04 00 	mov    0x459e0(%rbx),%rax
++	48 89 44 24 40       	mov    %rax,0x40(%rsp)
++	4c 89 7c 24 28       	mov    %r15,0x28(%rsp)
++	48 c7 44 24 50 70 47 	movq   $0xffffffff85124770,0x50(%rsp)
++	12 85 
++	e8 6b 4c 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
++	48 89 83 c8 59 04 00 	mov    %rax,0x459c8(%rbx)
++	48 85 c0             	test   %rax,%rax
++	0f 84 87 02 00 00    	je     ffffffff820b06cc <dm_sw_init+0x62c>
++	48 8d 74 24 28       	lea    0x28(%rsp),%rsi
++	4c 89 f7             	mov    %r14,%rdi
++	48 89 c2             	mov    %rax,%rdx
++	e8 bb 6c 42 00       	call   ffffffff824d7110 <dmub_srv_calc_mem_info>
++	85 c0                	test   %eax,%eax
++	0f 85 eb 02 00 00    	jne    ffffffff820b0748 <dm_sw_init+0x6a8>
++	b8 00 ff ff ff       	mov    $0xffffff00,%eax
++	23 83 a8 af 05 00    	and    0x5afa8(%rbx),%eax
++	3d 00 01 00 04       	cmp    $0x4000100,%eax
++	75 56                	jne    ffffffff820b04c5 <dm_sw_init+0x425>
++	48 8b 3d 0a e4 8e 01 	mov    0x18ee40a(%rip),%rdi        # ffffffff8399e880 <kmalloc_caches+0x30>
++	ba 28 00 00 00       	mov    $0x28,%edx
++	be c0 0d 00 00       	mov    $0xdc0,%esi
++	e8 1b 4c 52 ff       	call   ffffffff815d50a0 <__kmalloc_cache_noprof>
++	48 85 c0             	test   %rax,%rax
++	74 3b                	je     ffffffff820b04c5 <dm_sw_init+0x425>
++	49 89 c7             	mov    %rax,%r15
++	4c 8d 40 10          	lea    0x10(%rax),%r8
++	4c 8d 48 20          	lea    0x20(%rax),%r9
++	48 83 c0 18          	add    $0x18,%rax
++	be 78 0d 00 00       	mov    $0xd78,%esi
++	48 89 df             	mov    %rbx,%rdi
++	ba 00 10 00 00       	mov    $0x1000,%edx
++	b9 02 00 00 00       	mov    $0x2,%ecx
++	50                   	push   %rax
++	e8 8f fb c5 ff       	call   ffffffff81d10040 <amdgpu_bo_create_kernel>
++	48 83 c4 08          	add    $0x8,%rsp
++	85 c0                	test   %eax,%eax
++	0f 84 41 01 00 00    	je     ffffffff820b05fe <dm_sw_init+0x55e>
++	4c 89 ff             	mov    %r15,%rdi
++	e8 9b ec 51 ff       	call   ffffffff815cf160 <kfree>
++	45 31 ed             	xor    %r13d,%r13d
++	4c 89 ab 08 76 04 00 	mov    %r13,0x47608(%rbx)
+ 	8b 93 88 06 00 00    	mov    0x688(%rbx),%edx
+-	45 31 f6             	xor    %r14d,%r14d
++	31 c0                	xor    %eax,%eax
+ 	83 fa 1d             	cmp    $0x1d,%edx
+-	77 23                	ja     ffffffff820b0356 <dm_sw_init+0x2b6>
++	77 27                	ja     ffffffff820b0503 <dm_sw_init+0x463>
+ 	b9 e0 fb 3f 00       	mov    $0x3ffbe0,%ecx
+ 	0f a3 d1             	bt     %edx,%ecx
+-	72 d8                	jb     ffffffff820b0315 <dm_sw_init+0x275>
++	0f 82 f9 02 00 00    	jb     ffffffff820b07e3 <dm_sw_init+0x743>
+ 	83 fa 16             	cmp    $0x16,%edx
+-	0f 84 14 01 00 00    	je     ffffffff820b045a <dm_sw_init+0x3ba>
+-	49 c7 c4 44 62 59 83 	mov    $0xffffffff83596244,%r12
++	0f 84 ee 01 00 00    	je     ffffffff820b06e1 <dm_sw_init+0x641>
++	49 c7 c7 b5 60 59 83 	mov    $0xffffffff835960b5,%r15
+ 	83 fa 1d             	cmp    $0x1d,%edx
+-	0f 84 1d 01 00 00    	je     ffffffff820b0473 <dm_sw_init+0x3d3>
+-	3d ff 02 01 03       	cmp    $0x30102ff,%eax
+-	0f 8e 78 01 00 00    	jle    ffffffff820b04d9 <dm_sw_init+0x439>
+-	3d ff 00 02 03       	cmp    $0x30200ff,%eax
+-	0f 8f 3b 02 00 00    	jg     ffffffff820b05a7 <dm_sw_init+0x507>
+-	3d ff 04 01 03       	cmp    $0x30104ff,%eax
+-	0f 8e d2 02 00 00    	jle    ffffffff820b0649 <dm_sw_init+0x5a9>
+-	3d 00 05 01 03       	cmp    $0x3010500,%eax
+-	74 97                	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	3d 00 06 01 03       	cmp    $0x3010600,%eax
+-	74 90                	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	3d 00 00 02 03       	cmp    $0x3020000,%eax
+-	74 89                	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	e9 fe 02 00 00       	jmp    ffffffff820b068f <dm_sw_init+0x5ef>
++	0f 84 f7 01 00 00    	je     ffffffff820b06fa <dm_sw_init+0x65a>
++	b9 00 ff ff ff       	mov    $0xffffff00,%ecx
++	23 8b a8 af 05 00    	and    0x5afa8(%rbx),%ecx
++	81 f9 ff 02 01 03    	cmp    $0x30102ff,%ecx
++	0f 8e db 02 00 00    	jle    ffffffff820b07f5 <dm_sw_init+0x755>
++	81 f9 ff 00 02 03    	cmp    $0x30200ff,%ecx
++	0f 8f ea 03 00 00    	jg     ffffffff820b0910 <dm_sw_init+0x870>
++	81 f9 ff 04 01 03    	cmp    $0x30104ff,%ecx
++	0f 8e e6 04 00 00    	jle    ffffffff820b0a18 <dm_sw_init+0x978>
++	81 f9 00 05 01 03    	cmp    $0x3010500,%ecx
++	0f 84 a5 02 00 00    	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	81 f9 00 06 01 03    	cmp    $0x3010600,%ecx
++	0f 84 99 02 00 00    	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	81 f9 00 00 02 03    	cmp    $0x3020000,%ecx
++	0f 84 8d 02 00 00    	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	e9 09 05 00 00       	jmp    ffffffff820b0a64 <dm_sw_init+0x9c4>
+ 	c7 83 28 c7 03 00 3f 	movl   $0x3f,0x3c728(%rbx)
+ 	00 00 00 
+-	48 89 8b 30 c7 03 00 	mov    %rcx,0x3c730(%rbx)
+-	b9 ff 0f 00 00       	mov    $0xfff,%ecx
+-	03 48 20             	add    0x20(%rax),%ecx
+-	81 e1 00 f0 ff ff    	and    $0xfffff000,%ecx
+-	01 8b 18 c9 03 00    	add    %ecx,0x3c918(%rbx)
++	48 89 83 30 c7 03 00 	mov    %rax,0x3c730(%rbx)
++	b8 ff 0f 00 00       	mov    $0xfff,%eax
++	41 03 47 20          	add    0x20(%r15),%eax
++	25 00 f0 ff ff       	and    $0xfffff000,%eax
++	01 83 18 c9 03 00    	add    %eax,0x3c918(%rbx)
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	75 51                	jne    ffffffff820b040d <dm_sw_init+0x36d>
++	0f 85 f3 00 00 00    	jne    ffffffff820b067d <dm_sw_init+0x5dd>
+ 	31 ff                	xor    %edi,%edi
+-	eb 51                	jmp    ffffffff820b0411 <dm_sw_init+0x371>
++	e9 f0 00 00 00       	jmp    ffffffff820b0681 <dm_sw_init+0x5e1>
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	75 5c                	jne    ffffffff820b0422 <dm_sw_init+0x382>
++	0f 85 f7 00 00 00    	jne    ffffffff820b0692 <dm_sw_init+0x5f2>
+ 	31 ff                	xor    %edi,%edi
+-	eb 5c                	jmp    ffffffff820b0426 <dm_sw_init+0x386>
++	e9 f4 00 00 00       	jmp    ffffffff820b0696 <dm_sw_init+0x5f6>
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	75 6d                	jne    ffffffff820b043d <dm_sw_init+0x39d>
++	0f 85 00 01 00 00    	jne    ffffffff820b06ac <dm_sw_init+0x60c>
+ 	31 ff                	xor    %edi,%edi
+-	eb 6d                	jmp    ffffffff820b0441 <dm_sw_init+0x3a1>
++	e9 fd 00 00 00       	jmp    ffffffff820b06b0 <dm_sw_init+0x610>
++	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
++	0f 85 ff 00 00 00    	jne    ffffffff820b06bc <dm_sw_init+0x61c>
++	31 ff                	xor    %edi,%edi
++	48 c7 c6 48 be 52 83 	mov    $0xffffffff8352be48,%rsi
++	e9 0c 02 00 00       	jmp    ffffffff820b07d7 <dm_sw_init+0x737>
+ 	48 8b 7b 18          	mov    0x18(%rbx),%rdi
+-	48 c7 c6 11 76 5e 83 	mov    $0xffffffff835e7611,%rsi
+-	e8 2c fa 16 ff       	call   ffffffff8121fe10 <_dev_err>
++	48 c7 c6 6f 74 5e 83 	mov    $0xffffffff835e746f,%rsi
++	e8 35 f8 16 ff       	call   ffffffff8121fe10 <_dev_err>
+ 	48 c7 83 f8 59 04 00 	movq   $0x0,0x459f8(%rbx)
+ 	00 00 00 00 
+ 	4c 8b 73 18          	mov    0x18(%rbx),%r14
+-	48 c7 c6 e1 f1 68 83 	mov    $0xffffffff8368f1e1,%rsi
++	48 c7 c6 7a f0 68 83 	mov    $0xffffffff8368f07a,%rsi
+ 	4c 89 f7             	mov    %r14,%rdi
+-	e8 0e fa 16 ff       	call   ffffffff8121fe10 <_dev_err>
+-	41 be ea ff ff ff    	mov    $0xffffffea,%r14d
+-	e9 08 ff ff ff       	jmp    ffffffff820b0315 <dm_sw_init+0x275>
++	e8 17 f8 16 ff       	call   ffffffff8121fe10 <_dev_err>
++	e9 e0 01 00 00       	jmp    ffffffff820b07de <dm_sw_init+0x73e>
++	49 8b 04 24          	mov    (%r12),%rax
++	4d 8b 77 20          	mov    0x20(%r15),%r14
++	4c 89 78 08          	mov    %r15,0x8(%rax)
++	49 89 07             	mov    %rax,(%r15)
++	4d 89 67 08          	mov    %r12,0x8(%r15)
++	4d 89 3c 24          	mov    %r15,(%r12)
++	4d 8b 6f 18          	mov    0x18(%r15),%r13
++	4d 85 ed             	test   %r13,%r13
++	0f 84 a3 fe ff ff    	je     ffffffff820b04c5 <dm_sw_init+0x425>
++	48 8b bb f8 59 04 00 	mov    0x459f8(%rbx),%rdi
++	41 0f b7 d6          	movzwl %r14w,%edx
++	be b8 36 00 00       	mov    $0x36b8,%esi
++	8d aa 00 00 64 00    	lea    0x640000(%rdx),%ebp
++	81 ca 00 00 64 10    	or     $0x10640000,%edx
++	48 8b 07             	mov    (%rdi),%rax
++	ff 50 08             	call   *0x8(%rax)
++	41 bf 30 75 00 00    	mov    $0x7530,%r15d
++	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
++	bf c7 10 00 00       	mov    $0x10c7,%edi
++	e8 56 f1 b8 00       	call   ffffffff82c3f7b0 <__const_udelay>
++	48 8b bb f8 59 04 00 	mov    0x459f8(%rbx),%rdi
++	be b8 36 00 00       	mov    $0x36b8,%esi
++	48 8b 07             	mov    (%rdi),%rax
++	ff 10                	call   *(%rax)
++	39 e8                	cmp    %ebp,%eax
++	0f 84 f2 00 00 00    	je     ffffffff820b0765 <dm_sw_init+0x6c5>
++	41 ff cf             	dec    %r15d
++	75 d8                	jne    ffffffff820b0650 <dm_sw_init+0x5b0>
++	e9 45 04 00 00       	jmp    ffffffff820b0ac2 <dm_sw_init+0xa22>
+ 	48 8b 7b 18          	mov    0x18(%rbx),%rdi
+-	48 c7 c6 24 c2 5d 83 	mov    $0xffffffff835dc224,%rsi
+-	e8 03 fd 16 ff       	call   ffffffff81220120 <_dev_info>
+-	e9 85 fe ff ff       	jmp    ffffffff820b02a7 <dm_sw_init+0x207>
++	48 c7 c6 82 c0 5d 83 	mov    $0xffffffff835dc082,%rsi
++	e8 93 fa 16 ff       	call   ffffffff81220120 <_dev_info>
++	e9 1b fc ff ff       	jmp    ffffffff820b02ad <dm_sw_init+0x20d>
+ 	48 8b 7b 18          	mov    0x18(%rbx),%rdi
+-	48 c7 c6 e5 76 64 83 	mov    $0xffffffff836476e5,%rsi
+-	e8 de f9 16 ff       	call   ffffffff8121fe10 <_dev_err>
+-	41 be f4 ff ff ff    	mov    $0xfffffff4,%r14d
+-	e9 d8 fe ff ff       	jmp    ffffffff820b0315 <dm_sw_init+0x275>
++	48 c7 c6 c3 75 64 83 	mov    $0xffffffff836475c3,%rsi
++	e8 6e f7 16 ff       	call   ffffffff8121fe10 <_dev_err>
++	b8 f4 ff ff ff       	mov    $0xfffffff4,%eax
++	e9 37 01 00 00       	jmp    ffffffff820b07e3 <dm_sw_init+0x743>
+ 	48 8b 7b 18          	mov    0x18(%rbx),%rdi
+-	48 c7 c6 a4 e6 57 83 	mov    $0xffffffff8357e6a4,%rsi
+-	89 c2                	mov    %eax,%edx
+-	e8 c1 f9 16 ff       	call   ffffffff8121fe10 <_dev_err>
+-	41 be ea ff ff ff    	mov    $0xffffffea,%r14d
+-	e9 bb fe ff ff       	jmp    ffffffff820b0315 <dm_sw_init+0x275>
+-	8b 83 94 06 00 00    	mov    0x694(%rbx),%eax
+-	49 c7 c4 d7 02 60 83 	mov    $0xffffffff836002d7,%r12
+-	83 c0 bf             	add    $0xffffffbf,%eax
+-	83 f8 50             	cmp    $0x50,%eax
+-	0f 83 a2 fe ff ff    	jae    ffffffff820b0315 <dm_sw_init+0x275>
++	48 c7 c6 8c e4 57 83 	mov    $0xffffffff8357e48c,%rsi
++	e9 1b 01 00 00       	jmp    ffffffff820b07d7 <dm_sw_init+0x737>
++	48 8b 7b 18          	mov    0x18(%rbx),%rdi
++	48 c7 c6 48 be 52 83 	mov    $0xffffffff8352be48,%rsi
++	e9 0b 01 00 00       	jmp    ffffffff820b07d7 <dm_sw_init+0x737>
++	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
++	0f 85 e6 00 00 00    	jne    ffffffff820b07bc <dm_sw_init+0x71c>
++	31 ff                	xor    %edi,%edi
++	48 c7 c6 70 60 59 83 	mov    $0xffffffff83596070,%rsi
++	eb bc                	jmp    ffffffff820b069d <dm_sw_init+0x5fd>
++	8b 8b 94 06 00 00    	mov    0x694(%rbx),%ecx
++	49 c7 c7 50 01 60 83 	mov    $0xffffffff83600150,%r15
++	83 c1 bf             	add    $0xffffffbf,%ecx
++	83 f9 50             	cmp    $0x50,%ecx
++	0f 83 e9 00 00 00    	jae    ffffffff820b07e3 <dm_sw_init+0x743>
+ 	83 bb 08 c9 03 00 01 	cmpl   $0x1,0x3c908(%rbx)
+-	75 47                	jne    ffffffff820b04c3 <dm_sw_init+0x423>
+-	4c 8d bb 48 6e 04 00 	lea    0x46e48(%rbx),%r15
++	75 4f                	jne    ffffffff820b0752 <dm_sw_init+0x6b2>
++	4c 8d b3 48 6e 04 00 	lea    0x46e48(%rbx),%r14
+ 	ba 01 00 00 00       	mov    $0x1,%edx
+-	48 c7 c1 85 db 5b 83 	mov    $0xffffffff835bdb85,%rcx
++	48 c7 c1 e3 d9 5b 83 	mov    $0xffffffff835bd9e3,%rcx
+ 	48 89 df             	mov    %rbx,%rdi
+-	4d 89 e0             	mov    %r12,%r8
+-	4c 89 fe             	mov    %r15,%rsi
+-	e8 63 35 c8 ff       	call   ffffffff81d33a00 <amdgpu_ucode_request>
++	4d 89 f8             	mov    %r15,%r8
++	4c 89 f6             	mov    %r14,%rsi
++	e8 dc 32 c8 ff       	call   ffffffff81d33a00 <amdgpu_ucode_request>
+ 	85 c0                	test   %eax,%eax
+-	74 74                	je     ffffffff820b0515 <dm_sw_init+0x475>
+-	41 89 c6             	mov    %eax,%r14d
++	0f 84 fe 00 00 00    	je     ffffffff820b082a <dm_sw_init+0x78a>
+ 	83 f8 ed             	cmp    $0xffffffed,%eax
+-	0f 85 ec 01 00 00    	jne    ffffffff820b0699 <dm_sw_init+0x5f9>
+-	45 31 f6             	xor    %r14d,%r14d
++	0f 85 e6 03 00 00    	jne    ffffffff820b0b1b <dm_sw_init+0xa7b>
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	0f 84 40 01 00 00    	je     ffffffff820b05fa <dm_sw_init+0x55a>
++	0f 84 89 02 00 00    	je     ffffffff820b09c8 <dm_sw_init+0x928>
+ 	48 8b 73 18          	mov    0x18(%rbx),%rsi
+-	e9 39 01 00 00       	jmp    ffffffff820b05fc <dm_sw_init+0x55c>
+-	45 31 f6             	xor    %r14d,%r14d
++	e9 82 02 00 00       	jmp    ffffffff820b09ca <dm_sw_init+0x92a>
+ 	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
+-	0f 84 c4 00 00 00    	je     ffffffff820b0594 <dm_sw_init+0x4f4>
++	75 7e                	jne    ffffffff820b07cc <dm_sw_init+0x72c>
++	31 ff                	xor    %edi,%edi
++	eb 7e                	jmp    ffffffff820b07d0 <dm_sw_init+0x730>
++	48 83 fb f0          	cmp    $0xfffffffffffffff0,%rbx
++	0f 84 a1 01 00 00    	je     ffffffff820b08fd <dm_sw_init+0x85d>
+ 	48 8b 73 18          	mov    0x18(%rbx),%rsi
+-	e9 bd 00 00 00       	jmp    ffffffff820b0596 <dm_sw_init+0x4f6>
+-	3d ff ff ff 02       	cmp    $0x2ffffff,%eax
+-	0f 8e f4 00 00 00    	jle    ffffffff820b05d8 <dm_sw_init+0x538>
+-	3d ff 01 00 03       	cmp    $0x30001ff,%eax
+-	0f 8e 8a 01 00 00    	jle    ffffffff820b0679 <dm_sw_init+0x5d9>
+-	3d 00 02 00 03       	cmp    $0x3000200,%eax
+-	0f 84 1b fe ff ff    	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	3d 00 03 00 03       	cmp    $0x3000300,%eax
+-	0f 84 10 fe ff ff    	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	3d 00 02 01 03       	cmp    $0x3010200,%eax
+-	0f 84 05 fe ff ff    	je     ffffffff820b0315 <dm_sw_init+0x275>
+-	e9 7a 01 00 00       	jmp    ffffffff820b068f <dm_sw_init+0x5ef>
++	e9 9a 01 00 00       	jmp    ffffffff820b08ff <dm_sw_init+0x85f>
++	48 8b bb f8 59 04 00 	mov    0x459f8(%rbx),%rdi
++	44 89 f2             	mov    %r14d,%edx
++	c1 ea 10             	shr    $0x10,%edx
++	be b8 36 00 00       	mov    $0x36b8,%esi
++	8d aa 00 00 63 00    	lea    0x630000(%rdx),%ebp
++	81 ca 00 00 63 10    	or     $0x10630000,%edx
++	48 8b 07             	mov    (%rdi),%rax
++	ff 50 08             	call   *0x8(%rax)
++	41 bf 30 75 00 00    	mov    $0x7530,%r15d
++	bf c7 10 00 00       	mov    $0x10c7,%edi
++	e8 17 f0 b8 00       	call   ffffffff82c3f7b0 <__const_udelay>
++	48 8b bb f8 59 04 00 	mov    0x459f8(%rbx),%rdi
++	be b8 36 00 00       	mov    $0x36b8,%esi
++	48 8b 07             	mov    (%rdi),%rax
++	ff 10                	call   *(%rax)
++	39 e8                	cmp    %ebp,%eax
++	0f 84 f4 00 00 00    	je     ffffffff820b08a6 <dm_sw_init+0x806>
++	41 ff cf             	dec    %r15d
++	75 d8                	jne    ffffffff820b078f <dm_sw_init+0x6ef>
++	e9 06 03 00 00       	jmp    ffffffff820b0ac2 <dm_sw_init+0xa22>
++	48 8b 7b 18          	mov    0x18(%rbx),%rdi
++	48 c7 c6 70 60 59 83 	mov    $0xffffffff83596070,%rsi
++	e9 d1 fe ff ff       	jmp    ffffffff820b069d <dm_sw_init+0x5fd>
++	48 8b 7b 18          	mov    0x18(%rbx),%rdi
++	48 c7 c6 a4 a6 55 83 	mov    $0xffffffff8355a6a4,%rsi
++	89 c2                	mov    %eax,%edx
++	e8 32 f6 16 ff       	call   ffffffff8121fe10 <_dev_err>
++	b8 ea ff ff ff       	mov    $0xffffffea,%eax
++	48 81 c4 f8 00 00 00 	add    $0xf8,%rsp
++	5b                   	pop    %rbx
++	41 5c                	pop    %r12
++	41 5d                	pop    %r13
++	41 5e                	pop    %r14
++	41 5f                	pop    %r15
++	5d                   	pop    %rbp
++	c3                   	ret
++	81 f9 ff ff ff 02    	cmp    $0x2ffffff,%ecx
++	0f 8e 44 01 00 00    	jle    ffffffff820b0945 <dm_sw_init+0x8a5>
++	81 f9 ff 01 00 03    	cmp    $0x30001ff,%ecx
++	0f 8e 3f 02 00 00    	jle    ffffffff820b0a4c <dm_sw_init+0x9ac>
++	81 f9 00 02 00 03    	cmp    $0x3000200,%ecx
++	74 ce                	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	81 f9 00 03 00 03    	cmp    $0x3000300,%ecx
++	74 c6                	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	81 f9 00 02 01 03    	cmp    $0x3010200,%ecx
++	74 be                	je     ffffffff820b07e3 <dm_sw_init+0x743>
++	e9 3a 02 00 00       	jmp    ffffffff820b0a64 <dm_sw_init+0x9c4>
+ 	48 8b 83 48 6e 04 00 	mov    0x46e48(%rbx),%rax
+-	45 31 f6             	xor    %r14d,%r14d
+ 	48 8b 48 08          	mov    0x8(%rax),%rcx
+ 	c7 83 68 c6 03 00 3b 	movl   $0x3b,0x3c668(%rbx)
+ 	00 00 00 
+
