@@ -1,0 +1,76 @@
+{0}[calvinow@sousa ~/git/linux] make -s drivers/gpu/drm/amd/amdgpu/ LLVM=${HOME}/llvm-22.1.0/bin/ W=2
+In file included from drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:30:
+In file included from ./drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services_types.h:29:
+In file included from ./drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:31:
+In file included from ./include/linux/kgdb.h:17:
+In file included from ./include/linux/kprobes.h:28:
+In file included from ./include/linux/ftrace.h:13:
+In file included from ./include/linux/kallsyms.h:13:
+In file included from ./include/linux/mm.h:2704:
+./include/linux/vmstat.h:489:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+  489 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+      |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+  490 |                            item];
+      |                            ~~~~
+./include/linux/vmstat.h:496:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+  496 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+      |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+  497 |                            NR_VM_NUMA_EVENT_ITEMS +
+      |                            ~~~~~~~~~~~~~~~~~~~~~~
+./include/linux/vmstat.h:503:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+  503 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+      |                               ~~~~~~~~~~~ ^ ~~~
+./include/linux/vmstat.h:509:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+  509 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+      |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+  510 |                            NR_VM_NUMA_EVENT_ITEMS +
+      |                            ~~~~~~~~~~~~~~~~~~~~~~
+In file included from drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:30:
+In file included from ./drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services_types.h:29:
+In file included from ./drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:31:
+In file included from ./include/linux/kgdb.h:17:
+In file included from ./include/linux/kprobes.h:31:
+In file included from ./arch/x86/include/asm/kprobes.h:18:
+./arch/x86/include/asm/text-patching.h:183:29: warning: declaration shadows a variable in the global scope [-Wshadow]
+  183 |         static const unsigned long cc_mask[6] = {
+      |                                    ^
+./arch/x86/include/asm/coco.h:16:12: note: previous declaration is here
+   16 | extern u64 cc_mask;
+      |            ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:442:63: warning: arithmetic between different enumeration types ('enum dc_irq_source' and 'enum irq_type') [-Wenum-enum-conversion]
+  442 |         amdgpu_crtc = get_crtc_by_otg_inst(adev, irq_params->irq_src - IRQ_TYPE_PFLIP);
+      |                                                  ~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:585:57: warning: arithmetic between different enumeration types ('enum dc_irq_source' and 'enum irq_type') [-Wenum-enum-conversion]
+  585 |         acrtc = get_crtc_by_otg_inst(adev, irq_params->irq_src - IRQ_TYPE_VUPDATE);
+      |                                            ~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:654:57: warning: arithmetic between different enumeration types ('enum dc_irq_source' and 'enum irq_type') [-Wenum-enum-conversion]
+  654 |         acrtc = get_crtc_by_otg_inst(adev, irq_params->irq_src - IRQ_TYPE_VBLANK);
+      |                                            ~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:5499:24: warning: declaration shadows a local variable [-Wshadow]
+ 5499 |                 struct dc_plane_cap *plane = &dm->dc->caps.planes[i];
+      |                                      ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:5451:29: note: previous declaration is here
+ 5451 |         const struct dc_plane_cap *plane;
+      |                                    ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:10422:85: warning: missing field 'power_source' initializer [-Wmissing-field-initializers]
+ 10422 |         struct dc_commit_streams_params params = {dc_state->streams, dc_state->stream_count};
+       |                                                                                            ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12819:25: warning: declaration shadows a local variable [-Wshadow]
+ 12819 |                 struct drm_connector *connector;
+       |                                       ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12481:24: note: previous declaration is here
+ 12481 |         struct drm_connector *connector;
+       |                               ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12942:25: warning: declaration shadows a local variable [-Wshadow]
+ 12942 |                 struct dm_crtc_state *dm_new_crtc_state =
+       |                                       ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12491:44: note: previous declaration is here
+ 12491 |         struct dm_crtc_state *dm_old_crtc_state, *dm_new_crtc_state;
+       |                                                   ^
+12 warnings generated.
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:407 No description found for return value of 'update_planes_and_stream_adapter'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:2997 No description found for return value of 'dm_hw_init'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3023 No description found for return value of 'dm_hw_fini'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:407 No description found for return value of 'update_planes_and_stream_adapter'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:2997 No description found for return value of 'dm_hw_init'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3023 No description found for return value of 'dm_hw_fini'

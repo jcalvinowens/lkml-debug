@@ -1,0 +1,66 @@
+{0}[calvinow@sousa ~/git/linux] rm drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.o
+{0}[calvinow@sousa ~/git/linux] make -sj32 drivers/gpu/drm/amd/amdgpu/ W=2 CROSS_COMPILE=${HOME}/gnu-15/bin/ HOSTCC=${HOME}/gnu-15/bin/gcc HOSTCXX=${HOME}/gnu-15/bin/g++ HOSTAR=${HOME}/gnu-15/bin/ar HOSTLD=${HOME}/gnu-15/bin/ld
+In file included from ./arch/x86/include/asm/kprobes.h:18,
+                 from ./include/linux/kprobes.h:31,
+                 from ./include/linux/kgdb.h:17,
+                 from ./drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:31,
+                 from ./drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services_types.h:29,
+                 from drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:30:
+./arch/x86/include/asm/text-patching.h: In function ‘__emulate_cc’:
+./arch/x86/include/asm/text-patching.h:183:36: warning: declaration of ‘cc_mask’ shadows a global declaration [-Wshadow]
+  183 |         static const unsigned long cc_mask[6] = {
+      |                                    ^~~~~~~
+In file included from ./arch/x86/include/asm/pgtable.h:23,
+                 from ./include/linux/pgtable.h:6,
+                 from ./include/linux/mm.h:32,
+                 from ./include/linux/kallsyms.h:13,
+                 from ./include/linux/ftrace.h:13,
+                 from ./include/linux/kprobes.h:28:
+./arch/x86/include/asm/coco.h:16:12: note: shadowed declaration is here
+   16 | extern u64 cc_mask;
+      |            ^~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c: In function ‘register_hpd_handlers’:
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:4355:76: warning: logical ‘or’ of equal expressions [-Wlogical-op]
+ 4355 |                         if (int_params.irq_source == DC_IRQ_SOURCE_INVALID ||
+      |                                                                            ^~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c: In function ‘amdgpu_dm_initialize_drm_device’:
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:5499:38: warning: declaration of ‘plane’ shadows a previous local [-Wshadow]
+ 5499 |                 struct dc_plane_cap *plane = &dm->dc->caps.planes[i];
+      |                                      ^~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:5451:36: note: shadowed declaration is here
+ 5451 |         const struct dc_plane_cap *plane;
+      |                                    ^~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c: In function ‘amdgpu_dm_commit_streams’:
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:10422:16: warning: missing initializer for field ‘power_source’ of ‘struct dc_commit_streams_params’ [-Wmissing-field-initializers]
+10422 |         struct dc_commit_streams_params params = {dc_state->streams, dc_state->stream_count};
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services_types.h:30:
+./drivers/gpu/drm/amd/amdgpu/../display/dc/dc_types.h:1435:35: note: ‘power_source’ declared here
+ 1435 |         enum dc_power_source_type power_source;
+      |                                   ^~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c: In function ‘amdgpu_dm_atomic_check’:
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12819:39: warning: declaration of ‘connector’ shadows a previous local [-Wshadow]
+12819 |                 struct drm_connector *connector;
+      |                                       ^~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12481:31: note: shadowed declaration is here
+12481 |         struct drm_connector *connector;
+      |                               ^~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12942:39: warning: declaration of ‘dm_new_crtc_state’ shadows a previous local [-Wshadow]
+12942 |                 struct dm_crtc_state *dm_new_crtc_state =
+      |                                       ^~~~~~~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:12491:51: note: shadowed declaration is here
+12491 |         struct dm_crtc_state *dm_old_crtc_state, *dm_new_crtc_state;
+      |                                                   ^~~~~~~~~~~~~~~~~
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c: In function ‘dm_suspend’:
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3229:32: warning: ‘r’ may be used uninitialized [-Wmaybe-uninitialized]
+ 3229 |                         return r;
+      |                                ^
+drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3133:13: note: ‘r’ was declared here
+ 3133 |         int r;
+      |             ^
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:407 No description found for return value of 'update_planes_and_stream_adapter'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:2997 No description found for return value of 'dm_hw_init'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3023 No description found for return value of 'dm_hw_fini'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:407 No description found for return value of 'update_planes_and_stream_adapter'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:2997 No description found for return value of 'dm_hw_init'
+Warning: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:3023 No description found for return value of 'dm_hw_fini'
